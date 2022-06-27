@@ -14,13 +14,13 @@ class ServiciosServiceTest {
 
     @Test
     fun validateSerialIsValid(){
-        val response =  serviciosService.validateSerialNumber("786456789")
+        val response =  serviciosService.validateSerialNumber("74123658")
         Assertions.assertEquals(true,response)
     }
 
     @Test
     fun validateSerialIsInvalid(){
-        val response =  serviciosService.validateSerialNumber("32154697")
+        val response =  serviciosService.validateSerialNumber("47856958")
         Assertions.assertEquals(false,response)
     }
 
