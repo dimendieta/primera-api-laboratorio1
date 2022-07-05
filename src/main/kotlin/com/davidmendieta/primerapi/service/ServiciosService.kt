@@ -32,10 +32,6 @@ class ServiciosService {
         return serviciosRepository.getListadeServiciosCostos(costo)
     }
 
-
-
-
-
     fun save(servicios: Servicios): Servicios{
         try {
             servicios.nombre_servicio?.takeIf { it.trim().isNotEmpty() }
@@ -93,6 +89,67 @@ class ServiciosService {
             return true
 
         return false
+
+
+    }
+
+    fun multiplicacion (coeficiente: Int, digito: Int): Int {
+   val response= coeficiente*digito
+        if(response>=10){
+            return response-9
+        }
+        return response
+    }
+
+
+    fun sumaValores(nui: String):Long{
+
+        var sum:Long=0
+        for ( i in 0..8){
+            val coeficiente = if( i % 2 ==0) 2 else 1
+            sum  += multiplicacion(coeficiente,Integer.parseInt(nui[i].toString()) )
+        }
+        return sum
+    }
+
+    fun findDecenaSuperior (sum: Int): Int { // buscar la decena superior
+
+        val division:Int = sum/10
+        val decenaSuperior :Int = (division+1) * 10
+        var response:Int=decenaSuperior-sum
+        if (response==10)
+           response=0
+            return response
+
+
+    }
+
+    fun ultimoDigito(cedula:String):Int {
+        val ultimo=cedula.last().toString()
+        val response= Integer.parseInt(ultimo)
+        return response
+    }
+
+    fun validarTotal(cedula: String):Boolean{
+        val suma=sumaValores(cedula).toInt()
+        val resto=findDecenaSuperior(suma)
+        val ultimoDigito=ultimoDigito(cedula)
+        if( resto ==ultimoDigito){
+            return true
+        }else{
+            return false
+        }
+
+    }
+
+    fun validarCedula(sum: Int): Int { // buscar la decena superior
+
+        val division:Int = sum/10
+        val decenaSuperior :Int = (division+1) * 10
+        var response:Int=decenaSuperior-sum
+        if (response==10)
+            response=0
+        return response
 
 
     }
