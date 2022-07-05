@@ -134,6 +134,7 @@ class ServiciosService {
         val suma=sumaValores(cedula).toInt()
         val resto=findDecenaSuperior(suma)
         val ultimoDigito=ultimoDigito(cedula)
+
         if( resto ==ultimoDigito){
             return true
         }else{
@@ -142,7 +143,7 @@ class ServiciosService {
 
     }
 
-    fun validarCedula(sum: Int): Int { // buscar la decena superior
+    /*fun validarCedula(sum: Int): Int { // buscar la decena superior
 
         val division:Int = sum/10
         val decenaSuperior :Int = (division+1) * 10
@@ -152,7 +153,7 @@ class ServiciosService {
         return response
 
 
-    }
+    }*/
 
 
 }
