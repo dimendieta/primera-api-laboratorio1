@@ -135,11 +135,7 @@ class ServiciosService {
         val resto=findDecenaSuperior(suma)
         val ultimoDigito=ultimoDigito(cedula)
 
-        if( resto ==ultimoDigito){
-            return true
-        }else{
-            return false
-        }
+        return resto ==ultimoDigito
 
     }
 
